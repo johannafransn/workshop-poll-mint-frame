@@ -2,7 +2,8 @@ import { sql } from '@vercel/postgres'
 
 import { syndicate } from './config'
 import { TPostData, TUntrustedData } from './types'
-
+import { createMintClient } from '@zoralabs/protocol-sdk'
+import { Address, createWalletClient, PublicClient, WalletClient } from 'viem'
 export const SERVER_URL = process.env.SERVER_URL
 
 // generate an html page with the relevant opengraph tags
@@ -65,17 +66,17 @@ export async function mintWithSyndicate(fid: number) {
   /* const syndicateMintTx = await syndicate.transact.sendTransaction({
     projectId: process.env.PROJECT_ID || '',
     contractAddress: process.env.CONTRACT_ADDRESS || '',
-    chainId: Number(process.env.CHAIN_ID) || 84532,
+    chainId: 84532,
     functionSignature: 'mint(address to)',
     args: {
       to: await getAddrByFid(fid),
     },
-  })
+  }) */
 
-  console.log('Syndicate Transaction ID: ', syndicateMintTx.transactionId)
-  await sql`UPDATE "Feedback" SET Isminted = true WHERE Fid = ${fid};` */
+  console.log('Syndicate Transaction ID: ')
+  await sql`UPDATE "Feedback" SET Isminted = true WHERE Fid = ${fid};`
 
-  // @todo loading frame so that nft has time to mint
+  //@todo loading frame so that nft has time to mint
   return generateFarcasterFrame(`${SERVER_URL}/redirect.png`, 'redirect')
 }
 
