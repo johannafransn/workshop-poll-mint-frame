@@ -2,6 +2,8 @@
 
 For Web3Ladies in Africa, for full slides made by @johannafransn for the workshop see [here](https://docs.google.com/presentation/d/1GszGW77fxXvOT356svt9N0WyxAhqMraQMeSv3Y7pceA/edit#slide=id.g213d55e719d_0_118). 
 
+Any questions feel free to ask in Discord 
+
 # How to run this frame
 
 1. `npm i && npm run dev`
